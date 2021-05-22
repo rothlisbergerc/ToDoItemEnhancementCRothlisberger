@@ -2,18 +2,16 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ToDoItemEnhancement_CRothlisberger</title>
-    <link rel="stylesheet" href="css/site.css">
+    <title>ToDo List App</title>
+    <link rel="stylesheet" href="/css/site.css">
     <link rel="stylesheet" href="https://unpkg.com/js-datepicker/dist/datepicker.min.css">    
 </head>
-
 <body>
     <h1>ToDo List</h1>
 
-    <label for="task">Enter a task: </label>
-    <input type="text" id="task">
+    <label for="title">Enter a task: </label>
+    <input type="text" id="title">
     <br>
 
     <label for="due-date">Enter the due date: </label>
@@ -24,14 +22,14 @@
     <input type="checkbox" id="is-complete">
     <br>
 
-    <input type="button" id="add-button" value="Add Task">
+    <input type="button" id="add" value="Add Task">
 
 
     <h2>Tasks:</h2>
-    <div id="all-tasks">        
-        <div id="complete-tasks"></div>
+    <div id="all-items">        
+        <div id="complete-items"></div>
 
-        <div id="incomplete-tasks">
+        <div id="incomplete-items">
             <div id="major-priority"></div>
             <div id="medium-priority"></div>
             <div id="minor-priority"></div>

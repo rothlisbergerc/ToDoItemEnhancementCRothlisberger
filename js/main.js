@@ -1,22 +1,22 @@
-var picker = datepicker("due-date");
+var picker = datepicker("#due-date");
 picker.setMin(new Date());
-var ToDoTask = (function () {
-    function ToDoTask() {
+var ToDoItem = (function () {
+    function ToDoItem() {
     }
-    return ToDoTask;
+    return ToDoItem;
 }());
 window.onload = function () {
-    var addTask = document.getElementById("add");
-    addTask.onclick = main;
+    var addItem = document.getElementById("add");
+    addItem.onclick = main;
 };
 function main() {
     if (isValid()) {
-        var task = getToDoTask();
-        displayToDoTask(task);
+        var item = getToDoItem();
+        displayToDoItem(item);
     }
 }
 function isValid() {
-    var titleBox = document.getElementById("name");
+    var titleBox = document.getElementById("title");
     var titleInput = titleBox.value;
     if (titleInput == "") {
         titleBox.nextElementSibling.innerHTML =
@@ -28,20 +28,45 @@ function isValid() {
         return true;
     }
 }
-function displayToDoTask(task) {
+function resetErrorMessages() {
+    var allSpans = document.querySelectorAll("form span");
+    for (var i = 0; i < allSpans.length; i++) {
+        var currSpan = allSpans[i];
+        if (currSpan.hasAttribute("data-required")) {
+            currSpan.innerText = "*";
+        }
+        else {
+            currSpan.innerText = "";
+        }
+    }
+}
+function getToDoItem() {
+    var myItem = new ToDoItem();
+    var titleInput = getInput("title");
+    myItem.title = titleInput.value;
+    var dueDateInput = getInput("due-date");
+    myItem.dueDate = new Date(dueDateInput.value);
+    var isCompleted = getInput("is-complete");
+    myItem.isCompleted = isCompleted.checked;
+    return myItem;
+}
+function getInput(id) {
+    return document.getElementById(id);
+}
+function displayToDoItem(item) {
     var itemText = document.createElement("h3");
-    itemText.innerText = task.name;
+    itemText.innerText = item.title;
     var itemDate = document.createElement("p");
-    itemDate.innerText = task.dueDate.toDateString();
+    itemDate.innerText = item.dueDate.toDateString();
     var itemDiv = document.createElement("div");
     itemDiv.onclick = markAsComplete;
     itemDiv.classList.add("todo");
-    if (task.isComplete) {
+    if (item.isCompleted) {
         itemDiv.classList.add("completed");
     }
     itemDiv.appendChild(itemText);
     itemDiv.appendChild(itemDate);
-    if (task.isComplete) {
+    if (item.isCompleted) {
         var completedToDos = document.getElementById("complete-items");
         completedToDos.appendChild(itemDiv);
     }
@@ -55,17 +80,4 @@ function markAsComplete() {
     itemDiv.classList.add("completed");
     var completedItems = document.getElementById("complete-items");
     completedItems.appendChild(itemDiv);
-}
-function getInput(id) {
-    return document.getElementById(id);
-}
-function getToDoTask() {
-    var myTask = new ToDoTask();
-    var nameInput = getInput("task");
-    myTask.name = nameInput.value;
-    var dueDateInput = getInput("due-date");
-    myTask.dueDate = new Date(dueDateInput.value);
-    var isCompleted = getInput("is-complete");
-    myTask.isComplete = isCompleted.checked;
-    return myTask;
 }

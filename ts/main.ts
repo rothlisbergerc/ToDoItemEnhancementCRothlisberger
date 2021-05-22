@@ -1,31 +1,33 @@
 // @ts-ignore: Ignoring issue with js-datepicker lack of intellisense
-const picker = datepicker("due-date");
-picker.setMin(new Date()); // Today's date
+const picker = datepicker("#due-date");
+picker.setMin(new Date()); // Set to today's date
 
-class ToDoTask{
-    name:string;
+class ToDoItem{
+    title:string;
     dueDate:Date;
-    isComplete:boolean;
+    isCompleted:boolean;
 }
 
+
 window.onload = function(){
-    let addTask = document.getElementById("add");
-    addTask.onclick = main;
+    let addItem = document.getElementById("add");
+    addItem.onclick = main;
+
 }
 
 function main(){
     if(isValid()){
-        let task = getToDoTask();
-        displayToDoTask(task);
+        let item = getToDoItem();
+        displayToDoItem(item);
     }
 }
 
 /**
- * Checks if textbox input is valid.
+ * Checks if textbox input is valid
  */
-function isValid(){
+function isValid():boolean{    
     let titleBox:HTMLInputElement = 
-        <HTMLInputElement>document.getElementById("name");
+        <HTMLInputElement>document.getElementById("title");
     let titleInput:string = titleBox.value; 
 
     if(titleInput == ""){        
@@ -41,34 +43,70 @@ function isValid(){
 }
 
 /**
+ * Resets all the spans back to the default text
+ */
+function resetErrorMessages():void{
+    let allSpans = document.querySelectorAll("form span");
+    for(let i = 0; i < allSpans.length; i++){
+        let currSpan = <HTMLElement>allSpans[i];
+        if(currSpan.hasAttribute("data-required")){
+            currSpan.innerText = "*";
+        }
+        else{
+            currSpan.innerText = "";
+        }
+    }
+}
+
+/**
+ * Get all input off form and wrap in
+ * a ToDoItem object
+ */
+function getToDoItem():ToDoItem{
+    let myItem = new ToDoItem();
+    // get title
+    let titleInput = getInput("title");
+    myItem.title = titleInput.value;
+
+    // get due date
+    let dueDateInput = getInput("due-date");
+    myItem.dueDate = new Date(dueDateInput.value);
+
+    // get isCompleted
+    let isCompleted = getInput("is-complete");
+    myItem.isCompleted = isCompleted.checked;
+
+    return myItem;
+}
+
+function getInput(id):HTMLInputElement{
+    return <HTMLInputElement>document.getElementById(id);
+}
+
+/**
  * Display given ToDoItem on the web page
  */
- function displayToDoTask(task:ToDoTask):void{
+function displayToDoItem(item:ToDoItem):void{
     // ex. <h3>Record JS Lecture</h3>
     let itemText = document.createElement("h3");
-    itemText.innerText = task.name;
+    itemText.innerText = item.title;
 
     // ex. <p>June 1st 2020</p>
     let itemDate = document.createElement("p");
-    itemDate.innerText = task.dueDate.toDateString();
+    itemDate.innerText = item.dueDate.toDateString();
 
     // ex. <div class="todo completed"></div> or <div class="todo"></div>
     let itemDiv = document.createElement("div");
     itemDiv.onclick = markAsComplete;
     itemDiv.classList.add("todo");
-    if(task.isComplete){
+    if(item.isCompleted){
         itemDiv.classList.add("completed");
     }
-    
-    /*  <div class="completed">
-            <h3>Record JS Lecture</h3>
-            <p>June 1st 2020</p>
-        </div>
-    */
+
     itemDiv.appendChild(itemText);
     itemDiv.appendChild(itemDate);
 
-    if(task.isComplete){
+    if(item.isCompleted){
         let completedToDos = document.getElementById("complete-items");
         completedToDos.appendChild(itemDiv);
     }
@@ -86,27 +124,3 @@ function markAsComplete(){
     completedItems.appendChild(itemDiv);
 }
 
-function getInput(id){
-    return <HTMLInputElement>document.getElementById(id);
-}
-
-/**
- * Get all user input off form and wrap in a ToDoTask object
- */
-function getToDoTask():ToDoTask{
-    let myTask = new ToDoTask();
-
-    // get name
-    let nameInput = getInput("task");
-    myTask.name = nameInput.value;
-
-    // get due date
-    let dueDateInput = getInput("due-date");
-    myTask.dueDate =  new Date(dueDateInput.value);
-
-    // get isCompleted
-    let isCompleted  = getInput("is-complete")    ;
-    myTask.isComplete = isCompleted.checked;
-
-    return myTask;
-}

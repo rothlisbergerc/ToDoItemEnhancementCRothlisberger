@@ -1,0 +1,8 @@
+h1, h2{
+    text-decoration: underline;
+}
+
+.completed{
+    opacity: 50%;
+    text-decoration: line-through;
+}
