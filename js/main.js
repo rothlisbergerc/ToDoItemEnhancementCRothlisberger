@@ -71,6 +71,11 @@ function displayToDoItem(item) {
         completedToDos.appendChild(itemDiv);
     }
     else {
+        var dueDateInput = getInput("due-date");
+        var dueDate = new Date(dueDateInput.value);
+        if ((dueDate < addDays(dueDate, 3))) {
+            alert("Oh thank god it worked");
+        }
         var incompleteToDos = document.getElementById("incomplete-items");
         incompleteToDos.appendChild(itemDiv);
     }
@@ -80,4 +85,9 @@ function markAsComplete() {
     itemDiv.classList.add("completed");
     var completedItems = document.getElementById("complete-items");
     completedItems.appendChild(itemDiv);
+}
+function addDays(date, days) {
+    var result = new Date(date);
+    result.setDate(result.getDate() + days);
+    return result;
 }

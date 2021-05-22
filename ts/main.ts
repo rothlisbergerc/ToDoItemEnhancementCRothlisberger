@@ -111,8 +111,16 @@ function displayToDoItem(item:ToDoItem):void{
         completedToDos.appendChild(itemDiv);
     }
     else{
+        let dueDateInput = getInput("due-date");
+        let dueDate = new Date(dueDateInput.value);
+
+        if((dueDate < addDays(dueDate , 3) )){
+            alert("Oh thank god it worked");
+        }
+
         let incompleteToDos = document.getElementById("incomplete-items");
         incompleteToDos.appendChild(itemDiv);
+
     }
 }
 
@@ -123,4 +131,15 @@ function markAsComplete(){
     let completedItems = document.getElementById("complete-items");
     completedItems.appendChild(itemDiv);
 }
+
+function addDays(date, days) {
+    let result = new Date(date);
+    result.setDate(result.getDate() + days);
+    return result;
+  }
+
+//   let dueDateInput = getInput("due-date");
+//   let dueDate = new Date(dueDateInput.value);
+
+// addDays(dueDate , 3);
 
