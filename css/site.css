@@ -10,3 +10,11 @@ h1, h2{
 .major-priority{
     color: red;
 }
+
+.medium-priority{
+    color: orange;
+}
+
+.minor-priority{
+    color: green;
+}

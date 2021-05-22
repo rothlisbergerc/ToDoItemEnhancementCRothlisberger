@@ -78,7 +78,10 @@ function displayToDoItem(item) {
             itemDiv.classList.add("major-priority");
         }
         if (dueDate > addDays(today, 2) && dueDate <= addDays(today, 5)) {
-            alert("This should be between 4 and 6 days only");
+            itemDiv.classList.add("medium-priority");
+        }
+        if (dueDate > addDays(today, 5)) {
+            itemDiv.classList.add("minor-priority");
         }
         var incompleteToDos = document.getElementById("incomplete-items");
         incompleteToDos.appendChild(itemDiv);
