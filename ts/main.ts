@@ -117,10 +117,12 @@ function displayToDoItem(item:ToDoItem):void{
         let today = new Date();
 
         if((addDays(today, 2) >= dueDate )){ // if due date is within 3 days of current date(inclusive)
-            alert("Oh thank god it worked");
-////////////////////////////
             itemDiv.classList.add("major-priority");
-////////////////////////////
+        }
+
+        if(dueDate > addDays(today, 2)  && dueDate <= addDays(today, 5) ){ // if due date is between 4 and 6 days after current date(inclusive)
+            alert("This should be between 4 and 6 days only");
+            // itemDiv.classList.add("major-priority");
         }
 
         let incompleteToDos = document.getElementById("incomplete-items");

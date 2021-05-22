@@ -75,8 +75,10 @@ function displayToDoItem(item) {
         var dueDate = new Date(dueDateInput.value);
         var today = new Date();
         if ((addDays(today, 2) >= dueDate)) {
-            alert("Oh thank god it worked");
             itemDiv.classList.add("major-priority");
+        }
+        if (dueDate > addDays(today, 2) && dueDate <= addDays(today, 5)) {
+            alert("This should be between 4 and 6 days only");
         }
         var incompleteToDos = document.getElementById("incomplete-items");
         incompleteToDos.appendChild(itemDiv);
