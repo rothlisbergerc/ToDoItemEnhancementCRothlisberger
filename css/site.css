@@ -6,3 +6,7 @@ h1, h2{
     opacity: 50%;
     text-decoration: line-through;
 }
+
+.major-priority{
+    color: red;
+}

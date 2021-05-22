@@ -99,6 +99,7 @@ function displayToDoItem(item:ToDoItem):void{
     let itemDiv = document.createElement("div");
     itemDiv.onclick = markAsComplete;
     itemDiv.classList.add("todo");
+
     if(item.isCompleted){
         itemDiv.classList.add("completed");
     }
@@ -113,9 +114,13 @@ function displayToDoItem(item:ToDoItem):void{
     else{
         let dueDateInput = getInput("due-date");
         let dueDate = new Date(dueDateInput.value);
+        let today = new Date();
 
-        if((dueDate < addDays(dueDate , 3) )){
+        if((addDays(today, 2) >= dueDate )){ // if due date is within 3 days of current date(inclusive)
             alert("Oh thank god it worked");
+////////////////////////////
+            itemDiv.classList.add("major-priority");
+////////////////////////////
         }
 
         let incompleteToDos = document.getElementById("incomplete-items");
