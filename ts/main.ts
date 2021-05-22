@@ -146,14 +146,15 @@ function markAsComplete(){
     completedItems.appendChild(itemDiv);
 }
 
+/**
+ * Adds a specified number of days to a date object
+ * @param date 
+ * @param days 
+ * @returns 
+ */
 function addDays(date, days) {
     let result = new Date(date);
     result.setDate(result.getDate() + days);
     return result;
   }
-
-//   let dueDateInput = getInput("due-date");
-//   let dueDate = new Date(dueDateInput.value);
-
-// addDays(dueDate , 3);
 
