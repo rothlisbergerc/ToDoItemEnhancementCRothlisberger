@@ -60,21 +60,8 @@ h1, h2{
     color: black;
 }
 
-.all-items{
-    height: auto;
-    display: flex;
-    justify-content: center;
+#all-items{
+    text-align: center;
 }
 
-#complete-items{
-    display: flex;
-    justify-content: center;
-
-}
-
-#incomplete-items{
-    display: flex;
-    justify-content: center;
-
-}
 
