@@ -8,7 +8,6 @@ class ToDoItem{
     isCompleted:boolean;
 }
 
-
 window.onload = function(){
     let addItem = document.getElementById("add");
     addItem.onclick = main;
