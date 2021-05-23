@@ -34,24 +34,29 @@ body{
     font-weight: bold;
 }
 
+label{
+    font-size: xx-large;
+}
+
 h1{
-    font-size: 300%;
+    font-size: 350%;
     font-weight: bold;
+    margin-top: 10px;
+    margin-bottom: 10px;
 }
 
 h2{
     font-size: 200%;
+    margin-top: 20px;
     margin-bottom: 10px;
 }
 
 h3{
-  margin: 5px;
-  margin-bottom: 1px;
+  margin: 0px;
 }
 
 p{
-    margin: 1px;
-    margin-top: 10px;
+    margin-top: 0px;
     font-size: 20px;
 }
 
@@ -80,4 +85,8 @@ h1, h2{
 
 #all-items{
     text-align: center;
+}
+
+#add{
+    background-color: lightgreen;
 }
