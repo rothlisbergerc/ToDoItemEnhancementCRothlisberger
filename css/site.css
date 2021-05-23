@@ -1,12 +1,12 @@
 body{
     font-family: 'Reenie Beanie', cursive;
+    font-size: large;
     background-image: url('../images/NotebookPaperOnDeskBG.jpg');
     background-repeat: no-repeat;
     background-attachment: fixed;
     background-position: center;
-    background-size: cover;     
+    background-size: cover;         
 }
-
 
 #all-input-items{
     display: flex;
@@ -16,16 +16,22 @@ body{
 #title-container{
     display: inline;
     float: left;
+    padding: 5px;
+    font-weight: bold;
 }
 
 #due-date-container{
     display: inline;
     float: left;
+    padding: 5px;
+    font-weight: bold;
 }
 
 #checkbox-container{
     display: inline;
     float: left;
+    padding: 5px;
+    font-weight: bold;
 }
 
 h1{
@@ -35,6 +41,18 @@ h1{
 
 h2{
     font-size: 200%;
+    margin-bottom: 10px;
+}
+
+h3{
+  margin: 5px;
+  margin-bottom: 1px;
+}
+
+p{
+    margin: 1px;
+    margin-top: 10px;
+    font-size: 20px;
 }
 
 h1, h2{
@@ -63,5 +81,3 @@ h1, h2{
 #all-items{
     text-align: center;
 }
-
-
