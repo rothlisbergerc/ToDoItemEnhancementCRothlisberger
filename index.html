@@ -13,18 +13,24 @@
 <body>
     <h1>ToDo List</h1>
 
-    <label for="title">Title: </label>
-    <input type="text" id="title" placeholder="Enter a task">
-    <span data-required>*</span>
-    <br>
+    <div id="title-container">
+        <label for="title">Title: </label>
+        <input type="text" id="title" placeholder="Enter a task">
+        <span data-required>*</span>
+        <br>
+    </div>
 
-    <label for="due-date">Due Date: </label>
-    <input type="text" id="due-date" placeholder="Enter a due date">
-    <br>
+    <div id="due-date-container"> 
+        <label for="due-date">Due Date: </label>
+        <input type="text" id="due-date" placeholder="Enter a due date">
+        <br>
+    </div>
 
-    <label for="is-complete">Is it completed? </label>
-    <input type="checkbox" id="is-complete">
-    <br>
+    <div id="checkbox-container">
+        <label for="is-complete">Is it completed? </label>
+        <input type="checkbox" id="is-complete">
+        <br>
+    </div>    
 
     <input type="button" id="add" value="Add Task">
 
