@@ -1,11 +1,13 @@
 body{
     text-align: center;
+    font-family: 'Reenie Beanie', cursive;
     background-image: url('../images/NotebookPaperOnDeskBG.jpg');
     background-repeat: no-repeat;
     background-attachment: fixed;
     background-position: center;
     background-size: cover;
 }
+
 
 h1, h2{
     text-decoration: underline;
