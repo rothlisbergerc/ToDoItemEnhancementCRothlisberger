@@ -7,6 +7,10 @@ body{
     background-size: cover;
 }
 
+#title-container{
+    display: inline;
+}
+
 h1{
     font-size: 300%;
     font-weight: bold;
