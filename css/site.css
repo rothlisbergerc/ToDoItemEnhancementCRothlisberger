@@ -7,8 +7,24 @@ body{
     background-size: cover;
 }
 
+#all-input-items{
+    display: flex;
+    justify-content: center;
+}
+
 #title-container{
     display: inline;
+    float: left;
+}
+
+#due-date-container{
+    display: inline;
+    float: left;
+}
+
+#checkbox-container{
+    display: inline;
+    float: left;
 }
 
 h1{
