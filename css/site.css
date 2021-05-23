@@ -4,8 +4,9 @@ body{
     background-repeat: no-repeat;
     background-attachment: fixed;
     background-position: center;
-    background-size: cover;
+    background-size: cover;     
 }
+
 
 #all-input-items{
     display: flex;
@@ -57,5 +58,23 @@ h1, h2{
     opacity: 50%;
     text-decoration: line-through;
     color: black;
+}
+
+.all-items{
+    height: auto;
+    display: flex;
+    justify-content: center;
+}
+
+#complete-items{
+    display: flex;
+    justify-content: center;
+
+}
+
+#incomplete-items{
+    display: flex;
+    justify-content: center;
+
 }
 
